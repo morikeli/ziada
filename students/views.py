@@ -19,5 +19,10 @@ def homepage_view(request):
     return render(request, 'students/homepage.html', context)
 
 
+def userprofile_view(request):
+
+    context = {}
+    return render(request, 'students/profile.html', context)
+
 class LogoutUser(LogoutView):
     template_name = 'students/logout.html'
