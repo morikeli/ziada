@@ -17,12 +17,12 @@
                 <div class="collapse navbar-collapse" id="dropdown-menu">
                     <div class="navbar-nav">
                         <a href="{% url 'homepage' %}" class="nav-item nav-link"><i class="bi-house-fill"></i> Home</a>
-                        <a href="{% url '/' %}" class="nav-item nav-link"><i class="bi-person-circle"></i> Profile</a>
-                        <a href="{% url '' %}" class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#upload-form"><i class="bi-cloud-plus-fill"></i> Upload</a>
-                        <a href="{% url '' %}" class="nav-item nav-link"><i class="bi-door-open-fill"></i> Logout</a>
+                        <a href="{% url 'user_profile' %}" class="nav-item nav-link"><i class="bi-person-circle"></i> Profile</a>
+                        <a href="{% url 'homepage' %}" class="nav-item nav-link" data-bs-toggle="modal" data-bs-target="#upload-form"><i class="bi-cloud-plus-fill"></i> Upload</a>
+                        <a href="{% url 'logout_user' %}" class="nav-item nav-link"><i class="bi-door-open-fill"></i> Logout</a>
 
-                        <a href="" class="nav-item nav-link"><i class="bi-shield-lock-fill"></i> Login</a>
-                        <a href="" class="nav-item nav-link"><i class="bi-person-plus-fill"></i> Signup</a>
+                        <a href="{% url 'login' %}" class="nav-item nav-link"><i class="bi-shield-lock-fill"></i> Login</a>
+                        <a href="{% url 'signup' %}" class="nav-item nav-link"><i class="bi-person-plus-fill"></i> Signup</a>
                     </div>
                 </div>
             </div>
