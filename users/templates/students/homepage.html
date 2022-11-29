@@ -1,0 +1,41 @@
+{% extends 'students/base.html' %}{% block title %}Homepage{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="modal fade" tabindex="-1" id="upload-form">
+            <div class="modal-dialog modal-dialog-start">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi-cloud-upload-fill"></i> Upload your assignment</h5>
+                        <button type="button" class="btn-sm btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="post">
+                            <fieldset class="form-group">
+                                
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-outline-success"><i class="bi-cloud-plus-fill"></i> Upload</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            
+        </div>
+
+    </div>
+    {% endblock %}
+</body>
+</html>

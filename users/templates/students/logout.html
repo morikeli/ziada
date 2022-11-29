@@ -1,0 +1,26 @@
+{% extends 'students/base.html' %}{% block title %}Logout{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-sm-3">
+                <h1 class="text-center text-muted fw-bold">Kwaheri ...</h1>
+                <h5 class="text-center">You have been logged out</h5>
+                <div class="border-top pt-3 text-center">
+                    <small class="text-muted">
+                        <a href="{% url 'login' %}" class="btn btn-outline-info text-secondary">Login again</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
