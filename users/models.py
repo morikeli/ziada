@@ -9,6 +9,7 @@ class Students(models.Model):
     phone_number = models.CharField(max_length=13, blank=False)
     course = models.CharField(max_length=100, blank=False)
     school = models.CharField(max_length=70, blank=False)
+    reg_no = models.CharField(max_length=14, blank=False)
     year = models.CharField(max_length=12, blank=False)
     semester = models.CharField(max_length=1, blank=False)
     profile_pic = models.ImageField(upload_to='Students-Dps/', default='default.png')
@@ -17,7 +18,46 @@ class Students(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return f'{self.student}'
+
+    class Meta:
+        verbose_name_plural = 'Students'
+        ordering = ['reg_no']
+
+
 class Assignments(models.Model):
+    id = models.CharField(max_length=18, primary_key=True, unique=True, editable=False)
     name = models.ForeignKey(Students, on_delete=models.CASCADE, editable=False)
     unit = models.CharField(max_length=70, blank=False)
+    document = models.FileField(upload_to='Assignments/', null=False)
+    uploaded = models.DateTimeField(auto_now_add=True)
+    edited = models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name_plural = 'Assignments'
+        ordering = ['-uploaded']
+
+
+class Lecturers(models.Model):
+    id = models.CharField(max_length=18, primary_key=True, unique=True, editable=False)
+    lec = models.OneToOneField(User, on_delete=models.CASCADE, editable=False)
+    title = models.CharField(max_length=5)
+    gender = models.CharField(max_length=7, blank=False)
+    phone_number = models.CharField(max_length=14, blank=False)
+    profile_pic = models.ImageField(upload_to='Lecturer-Dps/', default='default.png')
+    is_lecturer = models.BooleanField(default=False, editable=False)
+    unit = models.CharField(max_length=70, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
+    edited = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.lec}'
+
+    class Meta:
+        verbose_name_plural = 'Lecturers'
+        ordering = ['lec']
+
