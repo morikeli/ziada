@@ -1,4 +1,5 @@
-{% extends 'students/base.html' %}{% block title %}Pprofile{% endblock %}
+{% extends 'students/base.html' %}{% block title %}Signup{% endblock %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +9,18 @@
 </head>
 <body>
     {% block content %}
-    <div class="container">
+    <div class="container accounts-form-container">
         <div class="row">
             <div class="col-md-6 offset-sm-3">
                 <form action="" method="post" class="card card-body">
                     {% csrf_token %}
                     <fieldset class="form-group">
                         <legend class="border-bottom mb-4 text-center">Create new account</legend>
-                        {% include 'messages.html' %}{{form|crispy}}
+                        {% include 'messages.html' %}
+                        {{signup_form|crispy}}
                     </fieldset>
                     <div class="form-group d-grid gap-2">
-                        <button type="submit" class="btn btn-primary mt-2 mb-1">Login</button>
+                        <button type="submit" class="btn mt-2 mb-1">Login</button>
                     </div>
                     <div class="form-group">
                         <hr>

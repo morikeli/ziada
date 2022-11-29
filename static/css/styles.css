@@ -36,6 +36,9 @@ body {
     .navbar .container-fluid .nav-link {
         margin-right: 10px;
     }
+    .navbar .container-fluid .navbar-nav .accounts {
+        margin-left: 40%;
+    }
 }
 .navbar .container-fluid .navbar-brand, .navbar .nav-link i {
     font-size: 20px;
@@ -46,6 +49,29 @@ body {
 
 }
 .container {
-    margin-top: 5%;
+    margin-top: 6.5%;
     margin-bottom: 4%;
+}
+@media only screen and (max-device-width: 320px) {
+    .container {
+        margin-top: 22%;
+        margin-bottom: 5%;
+    }
+}
+@media only screen and (min-device-width: 321px) and (max-device-width: 520px) {
+    .container {
+        margin-top: 20%;
+        margin-bottom: 5%;
+    }
+}
+@media only screen and (min-device-width: 521px) and (max-device-width: 720px) {
+    .container {
+        margin-top: 15%;
+        margin-bottom: 5%;
+    }
+}
+.accounts-form-container form button {
+    background-color: rgba(128, 0, 128, 0.71);
+    color: white;
+    font-family: "Open Sans", sans-serif;
 }
