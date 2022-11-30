@@ -87,7 +87,7 @@ class UploadAssignmentsForm(forms.ModelForm):
                 help_text='Select the unit name of the assignment you want to upload')
     document = forms.FileField(widget=forms.FileInput(attrs={'type': 'file', 'class': 'mb-2'}), 
                 validators=[FileExtensionValidator(['doc', 'docx', 'odp', 'ods', 'odt', 'pdf', 'ppt', 'xlsx'])],
-                help_text='Supported file formats: .doc, .docx, .odp, .ods, .odt, .pdf, .ppt, .xlsx',
+                help_text="<br>Supported file formats: .doc, .docx, .odp, .ods, .odt, .pdf, .ppt, .xlsx",
 
             )
 
