@@ -8,7 +8,7 @@ body {
     font-size: 25px;
 }
 .navbar {
-    background-color: rgba(128, 0, 128, 0.86);
+    background-color: rgb(128, 0, 128);
     padding: 0;
     margin: 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
@@ -128,4 +128,22 @@ body {
 .profile .profile-edit img {
 	height: 120px;
   	width: 120px;
+}
+
+/* Bordered Tabs */
+.profile .nav-tabs-bordered {
+    border-bottom: 2px solid #ebeef4;
+}
+.profile .nav-tabs-bordered .nav-link {
+  margin-bottom: -2px;
+  border: none;
+  color: #2c384e;
+}
+.profile .nav-tabs-bordered .nav-link:hover, .nav-tabs-bordered .nav-link:focus {
+    color: #4154f1;
+}
+.profile .nav-tabs-bordered .nav-link.active {
+  background-color: #fff;
+  color: #4154f1;
+  border-bottom: 2px solid #4154f1;
 }

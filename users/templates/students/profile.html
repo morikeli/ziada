@@ -71,7 +71,7 @@
                                     
                                     <div class="row">
                                         <div class="col-lg-3 col-md-4 label">Phone No.</div>
-                                        <div class="col-lg-9 col-md-8">{{request.user.students.phone_no|default:" -- "}}</div>
+                                        <div class="col-lg-9 col-md-8">{{request.user.students.phone_number|default:" -- "}}</div>
                                     </div>
 
                                     <div class="row">
@@ -97,7 +97,7 @@
                                         <div class="row mb-3">
                                             <label for="image" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <img src="{{request.user.voters.profile_pic.url}}" alt="Profile">
+                                                <img src="{{request.user.students.profile_pic.url}}" alt="Profile">
                                             </div>
                                         </div>
                                         <div class="row mb-2">
