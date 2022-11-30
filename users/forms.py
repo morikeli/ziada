@@ -83,8 +83,8 @@ class UploadAssignmentsForm(forms.ModelForm):
 
     )
     
-    unit = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=CHOICE_UNITS,
-                help_text='Select the unit name of the assignment you want to upload')
+    unit = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select',}), choices=CHOICE_UNITS,
+                help_text='Select the unit name of the assignment you want to upload<br><br>')
     document = forms.FileField(widget=forms.FileInput(attrs={'type': 'file', 'class': 'mb-2'}), 
                 validators=[FileExtensionValidator(['doc', 'docx', 'odp', 'ods', 'odt', 'pdf', 'ppt', 'xlsx'])],
                 help_text="<br>Supported file formats: .doc, .docx, .odp, .ods, .odt, .pdf, .ppt, .xlsx",
