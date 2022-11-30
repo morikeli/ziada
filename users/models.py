@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from PIL import Image
 
 class Students(models.Model):
     id = models.CharField(max_length=18, primary_key=True, unique=True, editable=False)
@@ -20,6 +20,17 @@ class Students(models.Model):
 
     def __str__(self):
         return f'{self.student}'
+
+    def save(self, *args, **kwargs):
+        super(Students, self).save(*args, **kwargs)
+
+        lec_dp = Image.open(self.profile_pic.path)
+
+        if student_dp.height > 400 and student_dp.width > 400:
+            output_size = (400, 400)
+            student_dp.thumbnail = output_size
+            student_dp.save(self.profile_pic.path)
+
 
     class Meta:
         verbose_name_plural = 'Students'
@@ -56,6 +67,17 @@ class Lecturers(models.Model):
 
     def __str__(self):
         return f'{self.lec}'
+
+    def save(self, *args, **kwargs):
+        super(Lecturers, self).save(*args, **kwargs)
+
+        lec_dp = Image.open(self.profile_pic.path)
+
+        if lec_dp.height > 400 and lec_dp.width > 400:
+            output_size = (400, 400)
+            lec_dp.thumbnail = output_size
+            lec_dp.save(self.profile_pic.path)
+        
 
     class Meta:
         verbose_name_plural = 'Lecturers'
