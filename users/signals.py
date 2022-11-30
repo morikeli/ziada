@@ -21,11 +21,11 @@ def generate_StudentId(sender, instance, **kwargs):
         instance.id = str(uuid.uuid4()).replace('-', '')[:18]
 
 
-@receiver(post_save, sender=Students)
+@receiver(post_save, sender=User)
 def create_student_profile(sender, instance, created, **kwargs):
     if created:
         if instance.is_staff is False and instance.is_superuser is False:
-            if instance.is_student is False and instance.is_prefect is False:
-                Students.objects.create(student=instance)
+            # if instance.is_student is False and instance.is_prefect is False:
+            Students.objects.create(student=instance)
 
 
