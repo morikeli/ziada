@@ -24,7 +24,7 @@ class Students(models.Model):
     def save(self, *args, **kwargs):
         super(Students, self).save(*args, **kwargs)
 
-        lec_dp = Image.open(self.profile_pic.path)
+        student_dp = Image.open(self.profile_pic.path)
 
         if student_dp.height > 400 and student_dp.width > 400:
             output_size = (400, 400)
