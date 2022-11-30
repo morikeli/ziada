@@ -28,7 +28,7 @@ def signup_view(request):
 
 @login_required(login_url='login')
 @user_passes_test(lambda user: user.is_staff is False and user.is_superuser is False)
-@user_passes_test(lambda user: user.is_student is True)
+@user_passes_test(lambda user: user.students.is_student is True)
 def homepage_view(request):
 
     context = {}
@@ -36,6 +36,7 @@ def homepage_view(request):
 
 @login_required(login_url='login')
 @user_passes_test(lambda user: user.is_staff is False and user.is_superuser is False)
+@user_passes_test(lambda user: user.lecturers.is_student is True)
 def userprofile_view(request):
     editprofile_form = EditProfileForm(instance=request.user.students)
     updateprofile_form = UpdateProfileForm(instance=request.user.students)
