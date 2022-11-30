@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UsernameField
+from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
 from django import forms
 from .models import Students, Assignments, Lecturers
@@ -55,7 +56,9 @@ class UpdateProfileForm(forms.ModelForm):
     )
 
     gender = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=CHOICE_GENDER)
-    phone_number = forms.CharField(widget=forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Enter your mobile no.'}), help_text='<b>Enter your mobile number using your country code</b>, e.g. +254721 ...')
+    phone_number = forms.CharField(widget=forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Enter your mobile no.'}), 
+                help_text='<b>Enter your mobile number using your country code</b>, e.g. +254721 ...')
+    
     course = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=CHOICE_COURSE)
     school = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=CHOICE_SCHOOL)
     year = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=CHOICE_YEAR)
@@ -81,7 +84,8 @@ class UploadAssignmentsForm(forms.ModelForm):
     )
     
     unit = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=CHOICE_UNITS)
-    document = forms.FileField(widget=forms.FileInput(attrs={'type': 'file', 'class': 'mb-2'}), )
+    document = forms.FileField(widget=forms.FileInput(attrs={'type': 'file', 'class': 'mb-2'}), 
+                validators=[FileExtensionValidator(['doc', 'docx', 'xlsx', 'odp', 'ods', 'odt', 'pdf', 'ppt'])])
 
     class Meta:
         model = Assignments
