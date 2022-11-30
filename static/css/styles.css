@@ -79,3 +79,8 @@ body {
     background-color: rgba(128, 0, 128, 0.71);
     color: #fff;
 }
+.accounts-form-container form button:focus {
+    background-color: rgba(128, 0, 128, 0.71);
+    color: #fff;
+    border: 1px solid rgba(128, 0, 128, 0.86);
+}
