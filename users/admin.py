@@ -6,7 +6,7 @@ from .models import Students, Assignments, Lecturers
 class StudentsTable(admin.ModelAdmin):
     list_display = ['student', 'reg_no', 'school', 'is_prefect', 'created']
     readonly_fields = ['gender', 'phone_number', 'course', 'reg_no', 'school', 'year', 'semester', 'profile_pic']
-    fields = ['gender', 'phone_no', 'course', 'reg_no', 'school', 'year', 'semester', 'profile_pic']
+    fields = ['gender', 'phone_number', 'course', 'reg_no', 'school', 'year', 'semester', 'profile_pic']
 
 @admin.register(Assignments)
 class AssignmentsTable(admin.ModelAdmin):
