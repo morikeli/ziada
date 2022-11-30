@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
@@ -21,6 +21,7 @@ def signup_view(request):
             new_user.username = new_user.first_name + ' ' + new_user.last_name
             new_user.save()
             messages.success(request, f'New account for "{new_user.username}" created successfully!')
+            return redirect('user_profile')
 
     context = {'signup_form': form}
     return render(request, 'students/signup.html', context)
