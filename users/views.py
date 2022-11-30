@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-from .forms import LoginForm, SignupForm, EditProfileForm, UpdateProfileForm
+from .forms import LoginForm, SignupForm, EditProfileForm, UpdateProfileForm, UploadAssignmentsForm
 
 
 class UserLogin(LoginView):
@@ -30,13 +30,24 @@ def signup_view(request):
 @user_passes_test(lambda user: user.is_staff is False and user.is_superuser is False)
 @user_passes_test(lambda user: user.students.is_student is True)
 def homepage_view(request):
+    form = UploadAssignmentsForm()
 
-    context = {}
+    if request.method == 'POST':
+        form = UploadAssignmentsForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            new_doc = form.save(commit=False)
+            new_doc.name = request.user.students
+            new_doc.save()
+
+            messages.success(request, 'Document uploaded successfully!')
+            return redirect('homepage')
+
+    context = {'upload_form': form, }
     return render(request, 'students/homepage.html', context)
 
 @login_required(login_url='login')
 @user_passes_test(lambda user: user.is_staff is False and user.is_superuser is False)
-@user_passes_test(lambda user: user.lecturers.is_student is True)
 def userprofile_view(request):
     editprofile_form = EditProfileForm(instance=request.user.students)
     updateprofile_form = UpdateProfileForm(instance=request.user.students)

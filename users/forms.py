@@ -66,9 +66,24 @@ class UpdateProfileForm(forms.ModelForm):
         model = Students
         fields = ['gender', 'phone_number', 'course', 'school', 'reg_no', 'year', 'semester', 'profile_pic']
 
+
 class EditProfileForm(forms.ModelForm):
 
     class Meta:
         model = Students
         fields = ['profile_pic']
+
+
+class UploadAssignmentsForm(forms.ModelForm):
+    CHOICE_UNITS = (
+        (None, '-- Select unit --'),
+
+    )
+    
+    unit = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=CHOICE_UNITS)
+    document = forms.FileField(widget=forms.FileInput(attrs={'type': 'file', 'class': 'mb-2'}), )
+
+    class Meta:
+        model = Assignments
+        fields = ['unit', 'document']
 
