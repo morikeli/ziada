@@ -1,4 +1,5 @@
 {% extends 'students/base.html' %}{% block title %}Homepage{% endblock %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +20,12 @@
                     <div class="modal-body">
                         <form action="" method="post">
                             <fieldset class="form-group">
-                                
-                                <div class="text-end">
-                                    <button type="submit" class="btn btn-outline-success"><i class="bi-cloud-plus-fill"></i> Upload</button>
-                                </div>
+                                {{upload_form|crispy}}
                             </fieldset>
+                            <hr>
+                            <div class="text-end mt-3">
+                                <button type="submit" class="btn btn-outline-success"><i class="bi-cloud-plus-fill"></i> Upload</button>
+                            </div>
                         </form>
                     </div>
     
@@ -32,6 +34,14 @@
         </div>
 
         <div class="row">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Registered Voters per school</h5>
+                    <div id="RegVotersChart"></div>
+                    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+                    
+                </div>
+            </div>
             
         </div>
 
