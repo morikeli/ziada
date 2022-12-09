@@ -1,4 +1,6 @@
-* {box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -9,15 +11,13 @@ body {
 }
 .navbar {
     background-color: rgb(128, 0, 128);
-    padding: 0;
-    margin: 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
 }
 .navbar .navbar-brand {
     margin-left: 3%;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
-    font-size: 55px;
+    font-size: 30px;
 }
 .navbar .navbar-brand i {
     color: #ffc107;
@@ -26,18 +26,23 @@ body {
 .navbar .container-fluid .navbar-brand, .navbar .nav-link {
     color: #ddd;
 }
+.navbar .container-fluid .navbar-brand, .navbar .nav-link img {
+    height: 30px;
+    width: 30px;
+    line-height: -10%;
+}
 @media only screen and (min-device-width: 1200px) {
     .navbar .navbar-brand {
         margin-left: 10%;
     }
     .navbar .container-fluid .navbar-nav {
-        margin-left: 20%;
+        margin-left: 55%;
     }
     .navbar .container-fluid .nav-link {
         margin-right: 10px;
     }
     .navbar .container-fluid .navbar-nav .accounts {
-        margin-left: 40%;
+        margin-left: 45%;
     }
 }
 .navbar .container-fluid .navbar-brand, .navbar .nav-link i {
