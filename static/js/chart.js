@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     new ApexCharts(document.querySelector("#RegVotersChart"), {
         series: [{
